@@ -1,7 +1,6 @@
 """A madlib game that compliments its users."""
 
 from random import choice
-
 from flask import Flask, render_template, request
 
 # "__name__" is a special Python variable for the name of the current module.
