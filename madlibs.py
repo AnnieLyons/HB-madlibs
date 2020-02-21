@@ -39,22 +39,34 @@ def play_game():
                            person=player,
                            compliment=compliment)
 
-@app.route('/goodbye')
-def say_goodbye():
-    """Says goodbye"""
-    no_play = request.args.get("play_game")
-    play = request.args.get("play_game")
-    # player = request.args.get("person")
-    # if no_play:
-    if no_play == "No":
-        return render_template("goodbye.html",
-                            # person=player,
-                            yesno=no_play)
-    else:
-        return render_template("lets_play.html",
-                            # person=player,
-                            yesno=play)
+# @app.route('/goodbye')
+# def say_goodbye():
+#     """Says goodbye"""
+#     no_play = request.args.get("play_game")
+#     play = request.args.get("play_game")
+#     # player = request.args.get("person")
+#     # if no_play:
+#     if no_play == "No":
+#         return render_template("goodbye.html",
+#                             # person=player,
+#                             yesno=no_play)
+#     else:
+#         return render_template("lets_play.html",
+#                             # person=player,
+#                             yesno=play)
 
+@app.route('/game')
+def show_madlib_form():
+    """Show form to play madlibs or say goodbye."""
+
+    play_game = request.args.get("play")
+
+    if play_game == "yes":
+        return render_template("game.html")
+    else:
+        return render_template("goodbye.html")
+
+        
 
 @app.route('/madlib')
 def madlib():
@@ -80,23 +92,3 @@ if __name__ == '__main__':
 
 
 
-# @app.route('/game')
-# def greet_person():
-#     """Greet user with compliment."""
-
-#     player = request.args.get("person")
-
-#     compliment = choice(AWESOMENESS)
-
-#     return render_template("compliment.html",
-#                            person=player,
-#                            compliment=compliment)
-
-
-
-    # return render_template("goodbye.html",
-    #                         person=player,
-    # if no_play:
-    #     return render_template("goodbye.html",                      
-    #                             yes=play,
-    #                             no=no_play)
